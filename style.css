@@ -1,1 +1,36 @@
+body {
+  background: #f5deb3; /* لون الصحراء */
+  font-family: Arial, sans-serif;
+}
 
+#gameArea {
+  width: 600px;
+  height: 400px;
+  background: url('https://i.imgur.com/3f6Aq3q.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  border: 2px solid #000;
+  margin: 20px auto;
+}
+
+.player {
+  width: 40px;
+  height: 40px;
+  background: red;
+  position: absolute;
+  top: 180px;
+  left: 280px;
+}
+
+.treasure {
+  width: 30px;
+  height: 30px;
+  background: gold;
+  position: absolute;
+}
+
+#scoreBoard {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+}
