@@ -1,25 +1,17 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>كنوز ألف ليلة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-  <!-- Start Screen -->
-  <div class="game-container" id="start-screen">
-    <h1>🌙 Whispers of the Night</h1>
-    <p>An interactive story inspired by One Thousand and One Nights.</p>
-    <button onclick="startGame()">Start Game</button>
-  </div>
+<div id="scoreBoard">نقاطك: 0 | حيواتك: 3</div>
+<div id="gameArea">
+  <div class="player" id="player"></div>
+</div>
 
-  <!-- Game Screen -->
-  <div class="game-container" id="game-screen" style="display:none;">
-    <h2 id="night">Night 1</h2>
-    <p id="story">
-      The king listens in silence as your story begins...
-    </p>
-
-    <div class="choices">
-      <button onclick="choose(1)">Tell a brave story</button>
-      <button onclick="choose(2)">Tell a dark story</button>
-      <button onclick="choose(3)">Remain silent</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
+</html>
