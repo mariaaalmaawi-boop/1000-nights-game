@@ -1,33 +1,42 @@
 body {
-  background: linear-gradient(#0b132b, #1c2541);
-  color: #f1f1f1;
+  background: #f5deb3; /* لون الصحراء */
   font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
-.game-container {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
+#gameArea {
+  width: 600px;
+  height: 400px;
+  background: url('https://i.imgur.com/3f6Aq3q.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  border: 2px solid #000;
+  margin: 20px auto;
+}
+
+.player {
+  width: 40px;
+  height: 40px;
+  background: red;
+  position: absolute;
+  top: 180px;
+  left: 280px;
+}
+
+.treasure {
+  width: 30px;
+  height: 30px;
+  background: gold;
+  position: absolute;
+}
+
+.obstacle {
+  width: 40px;
+  height: 40px;
+  background: purple;
+  position: absolute;
+}
+
+#scoreBoard {
   text-align: center;
-}
-
-button {
-  margin: 8px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: #e09f3e;
-  color: #000;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #f4d35e;
+  font-size: 20px;
 }
