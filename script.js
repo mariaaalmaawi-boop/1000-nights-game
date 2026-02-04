@@ -1,27 +1,50 @@
-let night = 1;
+const player = document.getElementById('player');
+const gameArea = document.getElementById('gameArea');
+let score = 0;
+let lives = 3;
 
-function startGame() {
-  document.getElementById("start-screen").style.display = "none";
-  document.getElementById("game-screen").style.display = "block";
+// تحريك اللاعب
+document.addEventListener('keydown', (e) => {
+  const step = 10;
+  let top = parseInt(player.style.top);
+  let left = parseInt(player.style.left);
+
+  if (e.key === 'ArrowUp') player.style.top = top - step + 'px';
+  if (e.key === 'ArrowDown') player.style.top = top + step + 'px';
+  if (e.key === 'ArrowLeft') player.style.left = left - step + 'px';
+  if (e.key === 'ArrowRight') player.style.left = left + step + 'px';
+
+  checkCollision();
+});
+
+// إضافة كنز عشوائي
+function addTreasure() {
+  const treasure = document.createElement('div');
+  treasure.classList.add('treasure');
+  treasure.style.top = Math.random() * 370 + 'px';
+  treasure.style.left = Math.random() * 570 + 'px';
+  gameArea.appendChild(treasure);
+}
+addTreasure();
+
+// فحص التصادم مع الكنوز
+function checkCollision() {
+  const treasures = document.querySelectorAll('.treasure');
+  treasures.forEach(t => {
+    if (!t) return;
+    const tRect = t.getBoundingClientRect();
+    const pRect = player.getBoundingClientRect();
+
+    if (!(pRect.right < tRect.left || pRect.left > tRect.right || 
+          pRect.bottom < tRect.top || pRect.top > tRect.bottom)) {
+      score += 10;
+      t.remove();
+      addTreasure();
+      updateScore();
+    }
+  });
 }
 
-function choose(option) {
-  night++;
-
-  document.getElementById("night").textContent = "Night " + night;
-  const story = document.getElementById("story");
-
-  if (option === 1) {
-    story.textContent = "You tell a tale of courage and hope under the moonlight.";
-  } else if (option === 2) {
-    story.textContent = "A dark and mysterious story fills the chamber with tension.";
-  } else {
-    story.textContent = "Your silence makes the king uneasy, waiting for your next move.";
-  }
-
-  if (night === 10) {
-    story.textContent =
-      "🌙 Dawn breaks. The king lowers his sword. Your stories have saved your life.";
-    document.querySelector(".choices").style.display = "none";
-  }
+function updateScore() {
+  document.getElementById('scoreBoard').textContent = `نقاطك: ${score} | حيواتك: ${lives}`;
 }
