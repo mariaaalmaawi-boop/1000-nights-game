@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Whispers of the Night</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <div class="game-container">
+  <!-- Start Screen -->
+  <div class="game-container" id="start-screen">
     <h1>🌙 Whispers of the Night</h1>
+    <p>An interactive story inspired by One Thousand and One Nights.</p>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div class="game-container" id="game-screen" style="display:none;">
+    <h2 id="night">Night 1</h2>
     <p id="story">
-      Night 1: The king listens in silence as your story begins...
+      The king listens in silence as your story begins...
     </p>
 
     <div class="choices">
-      <button onclick="choose(1)">Begin the tale</button>
-      <button onclick="choose(2)">Change the story</button>
-      <button onclick="choose(3)">Stay silent</button>
+      <button onclick="choose(1)">Tell a brave story</button>
+      <button onclick="choose(2)">Tell a dark story</button>
+      <button onclick="choose(3)">Remain silent</button>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
